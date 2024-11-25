@@ -26,14 +26,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Показ результатов
+    // Добавляем интерпретацию на основе общего балла
+    function interpretScore(score) {
+        if (score <= 2) {
+            return 'Низкий суицидальный риск - динамическое наблюдение';
+        } else if (score <= 4) {
+            return 'Средний суицидальный риск – активное динамическое наблюдение психиатра';
+        } else if (score <= 6) {
+            return 'Высокий суицидальный риск – рекомендовано стационарное лечение';
+        } else {
+            return 'Очень высокий суицидальный риск – требуется госпитализация в стационар, либо вызов бригады СП';
+        }
+    }
+
+    // Функция для показа результатов
     function showResults() {
         document.querySelector('.carousel').style.display = 'none';
         progressBar.style.display = 'none';
         document.getElementById('results').style.display = 'block';
 
+        const interpretation = interpretScore(totalScore);
+
         // Показываем общий балл
         document.getElementById('total-score').textContent = `Общий балл: ${totalScore}`;
+        document.getElementById('interpretation').textContent = `${interpretation}`
+        // Добавляем интерпретацию балла
+        //const interpretation = interpretScore(totalScore);
+        //const interpretationElement = document.createElement('p');
+        //interpretationElement.textContent = `Интерпретация: ${interpretation}`;
+        //document.getElementById('answers-summary').appendChild(interpretationElement);
 
         // Генерация отчета с ответами
         const summary = document.getElementById('answers-summary');
@@ -48,15 +69,20 @@ document.addEventListener('DOMContentLoaded', () => {
             answerElement.textContent = `${questionText}: Ответ - ${answerText}`;
             summary.appendChild(answerElement);
         });
+
+        // Добавляем интерпретацию в конец отчета
+        summary.appendChild(interpretationElement);
     }
 
     // Копирование отчета
     document.getElementById('copy-report').addEventListener('click', () => {
         const totalScoreText = document.getElementById('total-score').textContent;
-        
-        // Генерируем текст отчета с заголовком, общим баллом и ответами
+        const interpretation = interpretScore(totalScore);
+
+        // Генерируем текст отчета с заголовком, общим баллом, интерпретацией и ответами
         let report = `--------\nSAD PERSONS Scale\n\n`; // Заголовок
         report += `${totalScoreText}\n\n`; // Добавляем общий балл и пустую строку
+        report += `Интерпретация: ${interpretation}\n\n`; // Добавляем интерпретацию
 
         // Добавляем ответы на вопросы
         const summary = document.querySelectorAll('#answers-summary p');
