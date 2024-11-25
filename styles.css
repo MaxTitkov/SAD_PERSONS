@@ -1,0 +1,19 @@
+.carousel {
+    display: flex;
+    overflow: hidden;
+}
+
+.carousel-item {
+    min-width: 100%;
+    transition: transform 0.5s ease-in-out;
+    display: none;
+}
+
+.carousel-item.is-active {
+    display: block;
+}
+
+/* Прогресс бар */
+.progress {
+    margin-top: 20px;
+}

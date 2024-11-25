@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опросник SAD PERSONS Scale</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title has-text-centered">Опросник SAD PERSONS Scale</h1>
+
+            <div class="carousel">
+                <div class="carousel-item is-active">
+                    <div class="box">
+                        <p class="question">1. Пол пациента мужской (Sex)</p>
+                        <div class="buttons">
+                            <button class="button is-primary" data-answer="1">Да</button>
+                            <button class="button is-light" data-answer="0">Нет</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="box">
+                        <p class="question">2. Пациент старше 45 или младше 19 (Age)</p>
+                        <div class="buttons">
+                            <button class="button is-primary" data-answer="1">Да</button>
+                            <button class="button is-light" data-answer="0">Нет</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Добавьте остальные вопросы по шкале SAD PERSONS -->
+                <div class="carousel-item">
+                    <div class="box">
+                        <p class="question">3. Депрессия в анамнезе (Depression)</p>
+                        <div class="buttons">
+                            <button class="button is-primary" data-answer="1">Да</button>
+                            <button class="button is-light" data-answer="0">Нет</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- ... остальные вопросы ... -->
+                <div class="carousel-item">
+                    <div class="box">
+                        <p class="question">4. Были суицидальные попытки (Previous Suicide Attempts?)</p>
+                        <div class="buttons">
+                            <button class="button is-primary" data-answer="1">Да</button>
+                            <button class="button is-light" data-answer="0">Нет</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="box">
+                        <p class="question">5. Пациент злоупотребляет ПАВ (Alcohol or Drug Use?)</p>
+                        <div class="buttons">
+                            <button class="button is-primary" data-answer="1">Да</button>
+                            <button class="button is-light" data-answer="0">Нет</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="box">
+                        <p class="question">6. У пациента нарушения мышления/психотический статус (Rational Thinking Loss/Psychosis?)</p>
+                        <div class="buttons">
+                            <button class="button is-primary" data-answer="1">Да</button>
+                            <button class="button is-light" data-answer="0">Нет</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="box">
+                        <p class="question">7. Семейное положение: холост/разведен/вдовец (Separated, Divorced or Widowed)</p>
+                        <div class="buttons">
+                            <button class="button is-primary" data-answer="1">Да</button>
+                            <button class="button is-light" data-answer="0">Нет</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="box">
+                        <p class="question">8. Имеется суицидальный план (Organized Plan?)</p>
+                        <div class="buttons">
+                            <button class="button is-primary" data-answer="1">Да</button>
+                            <button class="button is-light" data-answer="0">Нет</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="box">
+                        <p class="question">9. Отсутствует социальная поддержка (Social Supports?)</p>
+                        <div class="buttons">
+                            <button class="button is-primary" data-answer="1">Да</button>
+                            <button class="button is-light" data-answer="0">Нет</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="box">
+                        <p class="question">10. Имеется тяжелое соматическое заболевание (Sickness)</p>
+                        <div class="buttons">
+                            <button class="button is-primary" data-answer="1">Да</button>
+                            <button class="button is-light" data-answer="0">Нет</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <progress class="progress is-primary" value="0" max="100"></progress>
+
+            <div id="results" class="box" style="display: none;">
+                <h2 class="title">Результат</h2>
+                <p id="total-score"></p>
+                <div class="content" id="answers-summary"></div>
+                <button id="copy-report" class="button is-info">Скопировать отчет</button>
+                <button id="reset-test" class="button is-warning">Вернуться назад</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
